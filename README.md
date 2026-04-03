@@ -2,6 +2,10 @@
 
 A playful anonymous gossip board built with plain HTML, CSS, and JavaScript.
 
+## Live Site
+
+https://silicon-beep.github.io/gossip/
+
 ## Features
 
 - Post anonymous gossip with a nickname and category
