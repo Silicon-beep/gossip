@@ -1,0 +1,293 @@
+:root {
+  --bg: #0f1021;
+  --panel: rgba(19, 21, 44, 0.78);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #f6f7fb;
+  --muted: #bfc4dd;
+  --accent: #ff6ec7;
+  --accent-2: #8c7bff;
+  --success: #7df9c1;
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 110, 199, 0.22), transparent 0 25%),
+    radial-gradient(circle at top right, rgba(140, 123, 255, 0.3), transparent 0 28%),
+    linear-gradient(180deg, #121327 0%, #090b16 100%);
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+
+.topbar,
+.hero-grid,
+.section-heading,
+.control-row,
+.filter-row,
+.inline-grid,
+.post-topline,
+.post-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.topbar,
+.section-heading,
+.control-row,
+.post-topline,
+.post-actions {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero {
+  padding: 1rem 0 1.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.ghost-link {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.hero-grid {
+  margin-top: 2.5rem;
+  align-items: stretch;
+}
+
+.hero-grid > * {
+  flex: 1;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.78rem;
+  color: var(--success);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.02;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.hero-copy,
+.muted,
+.rules-card li,
+.hint {
+  color: var(--muted);
+}
+
+.hero-copy {
+  max-width: 44rem;
+  line-height: 1.65;
+  margin: 1rem 0 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.rules-card,
+.composer,
+.controls,
+.post-card {
+  padding: 1.1rem;
+}
+
+.rules-card ul {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  line-height: 1.6;
+}
+
+.btn,
+.chip,
+.react-btn {
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.16s ease, opacity 0.16s ease, background 0.16s ease;
+}
+
+.btn:hover,
+.chip:hover,
+.react-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-primary {
+  color: #12081a;
+  background: linear-gradient(135deg, #ff90d6, #b8a5ff);
+}
+
+.btn-secondary {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.form-grid,
+.feed-section {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.85rem 0.95rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.inline-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.controls {
+  display: grid;
+  gap: 1rem;
+}
+
+.filter-row {
+  flex-wrap: wrap;
+}
+
+.chip,
+.react-btn {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.55rem 0.9rem;
+}
+
+.chip.active {
+  background: linear-gradient(135deg, rgba(255, 110, 199, 0.25), rgba(140, 123, 255, 0.25));
+  outline: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.feed-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.post-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.post-author {
+  font-weight: 700;
+}
+
+.post-category,
+.post-time,
+.dot {
+  color: var(--muted);
+}
+
+.post-text {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .hero-grid,
+  .control-row,
+  .feed-list {
+    display: grid;
+  }
+
+  .feed-list,
+  .inline-grid {
+    grid-template-columns: 1fr;
+  }
+}

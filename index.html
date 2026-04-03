@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spillr — anonymous gossip board</title>
+    <meta
+      name="description"
+      content="A playful anonymous gossip board for sharing lighthearted tea with your crew."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand">
+            <span class="brand-mark">☕</span>
+            <span>Spillr</span>
+          </div>
+          <a href="#post-form" class="ghost-link">Post gossip</a>
+        </nav>
+
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">anonymous • playful • local</p>
+            <h1>Spill the tea without spilling your name.</h1>
+            <p class="hero-copy">
+              Share the funny, harmless buzz from work, campus, or the group chat.
+              Built for quick anonymous posts, reactions, and chaotic curiosity.
+            </p>
+            <div class="hero-actions">
+              <a href="#post-form" class="btn btn-primary">Start gossiping</a>
+              <a href="#feed" class="btn btn-secondary">Browse the board</a>
+            </div>
+          </div>
+
+          <aside class="rules-card">
+            <h2>House rules</h2>
+            <ul>
+              <li>Keep it light — no threats, hate, or harassment.</li>
+              <li>No private info or doxxing.</li>
+              <li>Funny rumors only. Be messy, not harmful.</li>
+            </ul>
+          </aside>
+        </div>
+      </header>
+
+      <main>
+        <section class="composer card" id="post-form">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">new post</p>
+              <h2>Drop fresh gossip</h2>
+            </div>
+            <p class="muted">Posts stay in this browser using local storage.</p>
+          </div>
+
+          <form id="gossip-form" class="form-grid">
+            <label>
+              Gossip
+              <textarea
+                id="gossip-input"
+                name="gossip"
+                rows="4"
+                maxlength="280"
+                placeholder="Example: Someone brought a spreadsheet to brunch and color-coded the mimosas."
+                required
+              ></textarea>
+              <span id="char-count" class="hint">0 / 280</span>
+            </label>
+
+            <div class="inline-grid">
+              <label>
+                Nickname
+                <input
+                  id="author-input"
+                  name="author"
+                  type="text"
+                  maxlength="28"
+                  placeholder="Anonymous Apricot"
+                />
+              </label>
+
+              <label>
+                Category
+                <select id="category-input" name="category">
+                  <option value="Work">Work</option>
+                  <option value="School">School</option>
+                  <option value="Dating">Dating</option>
+                  <option value="Neighborhood">Neighborhood</option>
+                  <option value="Pop culture">Pop culture</option>
+                </select>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Post anonymously</button>
+          </form>
+        </section>
+
+        <section class="feed-section" id="feed">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">community board</p>
+              <h2>Latest whispers</h2>
+            </div>
+          </div>
+
+          <div class="controls card">
+            <div class="control-row">
+              <input
+                id="search-input"
+                type="search"
+                placeholder="Search gossip..."
+                aria-label="Search gossip"
+              />
+
+              <select id="sort-input" aria-label="Sort posts">
+                <option value="recent">Newest first</option>
+                <option value="hot">Hottest first</option>
+              </select>
+            </div>
+
+            <div id="filter-buttons" class="filter-row" aria-label="Filter by category">
+              <button type="button" class="chip active" data-filter="All">All</button>
+              <button type="button" class="chip" data-filter="Work">Work</button>
+              <button type="button" class="chip" data-filter="School">School</button>
+              <button type="button" class="chip" data-filter="Dating">Dating</button>
+              <button type="button" class="chip" data-filter="Neighborhood">Neighborhood</button>
+              <button type="button" class="chip" data-filter="Pop culture">Pop culture</button>
+            </div>
+          </div>
+
+          <div id="feed-list" class="feed-list" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="post-template">
+      <article class="post-card card">
+        <div class="post-topline">
+          <div>
+            <span class="post-author"></span>
+            <span class="dot">•</span>
+            <span class="post-category"></span>
+          </div>
+          <span class="post-time"></span>
+        </div>
+
+        <p class="post-text"></p>
+
+        <div class="post-actions">
+          <button type="button" class="react-btn" data-reaction="tea">☕ <span>0</span></button>
+          <button type="button" class="react-btn" data-reaction="eyeroll">🙄 <span>0</span></button>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
